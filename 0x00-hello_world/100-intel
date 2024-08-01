@@ -1,13 +1,2 @@
 #!/bin/bash
-# Generate assembly code in Intel syntax for the C file specified in CFILE
-
-if [ -z "$CFILE" ]; then
-    echo "Error: CFILE environment variable is not set."
-    exit 1
-fi
-
-# Extract filename without extension
-FILE_NAME=$(basename "$CFILE" .c)
-
-# Generate assembly code with Intel syntax
-gcc -S -masm=intel "$CFILE" -o "${FILE_NAME}.s"
+gcc -S -masm=intel "$CFILE" -o "${CFILE%.c}.s"
