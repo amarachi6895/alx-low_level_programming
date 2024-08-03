@@ -13,13 +13,15 @@ int main(void)
 {
 int i;
 
-for (i = 0; i < 9; i++)
+for (i = 0; i <= 9; i++)
 {
 putchar('0' + i);          /* Print the current digit */
-putchar(',');              /* Print the comma */
-putchar(' ');              /* Print the space */
+if (i < 9)		 /* Print comma and space if not last digit */
+{
+putchar(',');
+putchar(' ');
 }
-putchar('9');                  /* Print the last digit */
+}
 putchar('\n');                 /* Print the newline */
 
 return (0);
