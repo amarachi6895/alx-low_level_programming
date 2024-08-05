@@ -1,62 +1,51 @@
 #include <stdio.h>
 
 /**
- * print_fibonacci - Prints the first 98 Fibonacci numbers
+ * main - Prints the first 98 Fibonacci numbers
  *
- * Description: This function calculates and prints the first 98
- * Fibonacci numbers, starting with 1 and 2, separated by a comma
- * and a space.
+ * Return: 0 on success
  */
-void print_fibonacci(void)
+int main(void)
 {
-	unsigned long int num1 = 1, num2 = 2;
-	unsigned long int next_num;
-	unsigned long int num1_high, num1_low, num2_high, num2_low, high, low;
+	unsigned long int f1 = 1, f2 = 2, next;
+	unsigned long int f1_high, f1_low, f2_high, f2_low;
+	unsigned long int high, low;
 	int count;
 
-	printf("%lu, %lu", num1, num2);
-
+	printf("%lu, %lu", f1, f2);
 	for (count = 2; count < 98; count++)
 	{
-		if (num1 + num2 < num1)
+		if (f1 + f2 > 0 && f2 > f1)
 		{
-			num1_high = num1 / 1000000000;
-			num1_low = num1 % 1000000000;
-			num2_high = num2 / 1000000000;
-			num2_low = num2 % 1000000000;
-
-			high = num1_high + num2_high;
-			low = num1_low + num2_low;
-
+			next = f1 + f2;
+			f1 = f2;
+			f2 = next;
+			printf(", %lu", next);
+		}
+		else
+		{
+			f1_high = f1 / 1000000000;
+			f1_low = f1 % 1000000000;
+			f2_high = f2 / 1000000000;
+			f2_low = f2 % 1000000000;
+			high = f1_high + f2_high;
+			low = f1_low + f2_low;
 			if (low >= 1000000000)
 			{
 				high += 1;
 				low -= 1000000000;
 			}
 			printf(", %lu%09lu", high, low);
-
-			num1 = num2;
-			num2 = high * 1000000000 + low;
-		}
-		else
-		{
-			next_num = num1 + num2;
-			printf(", %lu", next_num);
-
-			num1 = num2;
-			num2 = next_num;
+			f1_high = f2_high;
+			f1_low = f2_low;
+			f2_high = high;
+			f2_low = low;
+			f1 = f1_high * 1000000000 + f1_low;
+			f2 = f2_high * 1000000000 + f2_low;
 		}
 	}
-	printf("\n");
-}
 
-/**
- * main - Entry point of the program
- *
- * Return: Always 0 (Success)
- */
-int main(void)
-{
-	print_fibonacci();
+	printf("\n");
 	return (0);
 }
+
