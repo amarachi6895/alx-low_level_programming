@@ -1,4 +1,4 @@
-#include <unistd.h> /* Include the unistd.h header for the write function */
+#include "main.h"
 
 /* Prototype declaration for _putchar */
 int _putchar(char c);
