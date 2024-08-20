@@ -11,38 +11,38 @@
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-    int len1 = 0, len2 = 0, carry = 0, i, j, sum;
+	int len1 = 0, len2 = 0, carry = 0, i, j, sum;
 
-    while (n1[len1])
-        len1++;
-    while (n2[len2])
-        len2++;
+	while (n1[len1])
+		len1++;
+	while (n2[len2])
+		len2++;
 
-    if (size_r <= (len1 > len2 ? len1 : len2) + 1)
-        return (0);
+	if (size_r <= (len1 > len2 ? len1 : len2) + 1)
+		return (0);
 
-    r[size_r - 1] = '\0';
-    i = len1 - 1;
-    j = len2 - 1;
-    size_r--;
+	r[size_r - 1] = '\0';
+	i = len1 - 1;
+	j = len2 - 1;
+	size_r--;
 
-    while (i >= 0 || j >= 0 || carry)
-    {
-        sum = carry;
-        if (i >= 0)
-            sum += n1[i--] - '0';
-        if (j >= 0)
-            sum += n2[j--] - '0';
+	while (i >= 0 || j >= 0 || carry)
+	{
+		sum = carry;
+		if (i >= 0)
+			sum += n1[i--] - '0';
+		if (j >= 0)
+			sum += n2[j--] - '0';
 
-        if (size_r <= 0)
-            return (0);
+		if (size_r <= 0)
+			return (0);
 
-        r[--size_r] = (sum % 10) + '0';
-        carry = sum / 10;
-    }
+		r[--size_r] = (sum % 10) + '0';
+		carry = sum / 10;
+	}
 
-    if (size_r > 0)
-        return (r + size_r);
+	if (size_r > 0)
+		return (r + size_r);
 
-    return (r);
+	return (r);
 }
