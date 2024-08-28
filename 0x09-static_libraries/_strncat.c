@@ -10,8 +10,7 @@
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	(void)desk;
-	(void)src;
-	(void)n;
-	return (0);
+	(void)src; /* Mark 'src' as unused */
+	(void)n; /* Mark 'src' as unused */
+	return (dest);
 }

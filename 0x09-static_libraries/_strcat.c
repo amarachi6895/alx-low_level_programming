@@ -9,7 +9,6 @@
  */
 char *_strcat(char *dest, char *src)
 {
-	(void)desk;
 	(void)src;
-	return (0);
+	return (dest);
 }

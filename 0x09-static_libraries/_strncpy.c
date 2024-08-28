@@ -10,7 +10,7 @@
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	(void)desk;
+	(void)dest;
 	(void)src;
 	(void)n;
 	return (0);
